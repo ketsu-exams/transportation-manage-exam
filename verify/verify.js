@@ -15,7 +15,7 @@ var providerId, providerURI, jobURI, jobId, containerId, containerURI;
 
 describe("Test", function () {
   this.timeout(60000);
-  it("POST /providers -> 201", function (done) {
+  step("POST /providers -> 201", function (done) {
     var options = {
       url: endpoint + '/providers',
       method: 'POST',
@@ -41,7 +41,7 @@ describe("Test", function () {
         var result = tv4.validateResult(json, schema);
         assert.lengthOf(result.missing, 0, "Missing/unresolved JSON schema $refs (" + result.missing && result.missing.join(', ') + ") in schema: " + JSON.stringify(schema, null, 4) + " Error");
         assert.ok(result.valid, "Got unexpected response body: " + result.error && result.error.message + " " + JSON.stringify(schema, null, 4) + " Error");
-        provider
+        
       }
       providerURI = response.headers['location'];
       var splits = providerURI.split("/");
@@ -50,7 +50,7 @@ describe("Test", function () {
     });
   });
   
-  it("GET /providers/{providerId} -> 200", function (done) {
+  step("GET /providers/{providerId} -> 200", function (done) {
     var options = {
       url: endpoint + '/providers/' + providerId,
       method: 'GET',
@@ -91,7 +91,7 @@ describe("Test", function () {
     });
   });
   
-  it("GET /providers -> 200", function (done) {
+  step("GET /providers -> 200", function (done) {
     var options = {
       url: endpoint + '/providers',
       method: 'GET',
@@ -139,7 +139,7 @@ describe("Test", function () {
     });
   });
   
-  it("PUT /providers/{id} -> 204", function (done) {
+  step("PUT /providers/{id} -> 204", function (done) {
     var options = {
       url: endpoint + '/providers/' + providerId,
       method: 'PUT',
@@ -171,7 +171,7 @@ describe("Test", function () {
     });
   });
   
-  it("DELETE /providers -> 204", function (done) {
+  step("DELETE /providers -> 204", function (done) {
     var options = {
       url: endpoint + '/providers/' + providerId,
       method: 'DELETE',
@@ -189,7 +189,7 @@ describe("Test", function () {
   });
   
   
-  it("POST /jobs -> 201", function (done) {
+  step("POST /jobs -> 201", function (done) {
     var options = {
       url: endpoint + '/jobs',
       method: 'POST',
@@ -213,7 +213,7 @@ describe("Test", function () {
     });
   });
   
-  it("GET /jobs -> 200", function (done) {
+  step("GET /jobs -> 200", function (done) {
     var options = {
       url: jobURI,
       method: 'GET',
@@ -270,7 +270,7 @@ describe("Test", function () {
     });
   });
   
-  it("GET /jobs/{jobId} -> 200", function (done) {
+  step("GET /jobs/{jobId} -> 200", function (done) {
     var options = {
       url: endpoint + '/jobs' + jobId,
       method: 'GET',
@@ -317,7 +317,7 @@ describe("Test", function () {
     });
   });
   
-  it("PUT /jobs/{jobId} -> 204", function (done) {
+  step("PUT /jobs/{jobId} -> 204", function (done) {
     var options = {
       url: endpoint + '/jobs/' + jobId,
       method: 'PUT',
@@ -338,7 +338,7 @@ describe("Test", function () {
     });
   });
   
-  it("DELETE /jobs/{jobId} -> 204", function (done) {
+  step("DELETE /jobs/{jobId} -> 204", function (done) {
     var options = {
       url: endpoint + '/jobs/' + jobId,
       method: 'DELETE',
@@ -357,7 +357,7 @@ describe("Test", function () {
   
   
   
-  it("POST /containers -> 201", function (done) {
+  step("POST /containers -> 201", function (done) {
     var options = {
       url: endpoint + '/containers',
       method: 'POST',
@@ -380,7 +380,7 @@ describe("Test", function () {
     });
   });
   
-  it("GET /containers -> 200", function (done) {
+  step("GET /containers -> 200", function (done) {
     var options = {
       url: containerURI,
       method: 'GET',
@@ -429,7 +429,7 @@ describe("Test", function () {
     });
   });
   
-  it("GET /containers/{containerId} -> 200", function (done) {
+  step("GET /containers/{containerId} -> 200", function (done) {
     var options = {
       url: endpoint + '/containers' + containerId,
       method: 'GET',
@@ -467,7 +467,7 @@ describe("Test", function () {
     });
   });
   
-  it("PUT /containers/{containerId} -> 204", function (done) {
+  step("PUT /containers/{containerId} -> 204", function (done) {
     var options = {
       url: endpoint + '/containers/' + containerId,
       method: 'PUT',
@@ -486,7 +486,7 @@ describe("Test", function () {
     });
   });
   
-  it("DELETE /containers/{containerId} -> 204", function (done) {
+  step("DELETE /containers/{containerId} -> 204", function (done) {
     var options = {
       url: endpoint + '/containers/' + containerId,
       method: 'DELETE',
