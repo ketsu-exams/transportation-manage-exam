@@ -10,37 +10,37 @@ mediaType: application/json
       200:
         body:
           application/json:
-           schema: |
-             {
-               "$schema": "http://json-schema.org/draft-04/schema#",
-               "type": "object",
-               "totalCount": {
-                 "type": "integer"
-               },
-               "providers": {
-                 "type": "array",
-                 "properties": {
-                   "id": {
-                     "type": "integer"
-                   },
-                   "name": {
-                     "type": "string"
-                    }
-                 },
-                 "required": ["id", "name"]
-               }
-             }
-          example: |
-            {
-              "totalCount": 2,
-              [{
-                "id": 1,
-                "name": "Super Apple"
-               }, {
-                "id": 2,
-                "name": "Little cookie"
-              }]
-            }
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "totalCount": {
+                  "type": "integer"
+                },
+                "providers": {
+                  "type": "array",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                     }
+                  },
+                  "required": ["id", "name"]
+                }
+              }
+            example: |
+              {
+                "totalCount": 2,
+                [{
+                  "id": 1,
+                  "name": "Super Apple"
+                 }, {
+                  "id": 2,
+                  "name": "Little cookie"
+                }]
+              }
 
 
   post:
@@ -90,25 +90,25 @@ mediaType: application/json
         200:
           body:
             application/json:
-             schema: |
-               {
-                 "$schema": "http://json-schema.org/draft-04/schema#",
-                 "type": "object",
-                 "properties": {
-                   "id": {
-                     "type": "integer"
-                   },
-                   "name": {
-                     "type": "string"
-                    }
-                 },
-                  "required": ["id", "name"]
-               }
-            example: |
-              {
-                "id": 1,
-                "name": "Super Apple"
-              }
+              schema: |
+                {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                     }
+                  },
+                   "required": ["id", "name"]
+                }
+              example: |
+                {
+                  "id": 1,
+                  "name": "Super Apple"
+                }
 
     put:
       description: As a admin, I can update a provider's detail when this provider's detail had changed.
@@ -140,6 +140,7 @@ mediaType: application/json
 
     delete:
       description: As a admin, I can delete a provider when I won't to buy products from it.
+      responses:
         204:
 
 /jobs:
@@ -248,7 +249,7 @@ mediaType: application/json
           body:
             application/json:
               schema: |
-                 {
+                {
                   "$schema": "http://json-schema.org/draft-04/schema#",
                   "type": "object",
                   "properties": {
