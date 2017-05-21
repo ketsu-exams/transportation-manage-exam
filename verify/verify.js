@@ -318,14 +318,13 @@ describe("Test", function () {
             jobURI = response.headers['location'];
             var splits = jobURI.split("/");
             jobId = splits[splits.length - 1];
-            console.log(jobURI);
             done();
         });
     });
 
     step("GET /jobs -> 200", function (done) {
         var options = {
-            url: jobURI,
+            url: endpoint + '/jobs/',
             method: 'GET',
             qs: {},
             body: null,
